@@ -17,7 +17,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public final class LoremDomain implements LoremDomainContract<MainLoremDomainContract> {
+public final class LoremDomain implements LoremDomainContract<LoremDomainPresenterContract> {
 
     private static final int PARAGRAPHS = 5;
 
@@ -25,15 +25,15 @@ public final class LoremDomain implements LoremDomainContract<MainLoremDomainCon
     RepositoryContract repository;
 
     private Disposable[] disposable = new Disposable[2];
-    private MainLoremDomainContract domain;
+    private LoremDomainPresenterContract presenter;
 
     public LoremDomain() {
         App.get().getApplicationComponent().inject(this);
     }
 
     @Override
-    public void register(MainLoremDomainContract domain) {
-        this.domain = domain;
+    public void register(LoremDomainPresenterContract presenter) {
+        this.presenter = presenter;
     }
 
     @Override
@@ -50,7 +50,7 @@ public final class LoremDomain implements LoremDomainContract<MainLoremDomainCon
     @Override
     public void getLoremIpsum(boolean usingCache) {
         clearDisposable(0);
-        domain.showLoadingDialog();
+        presenter.showLoadingDialog();
         disposable[0] = repository.getLoremIpsum(PARAGRAPHS, usingCache)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -77,15 +77,15 @@ public final class LoremDomain implements LoremDomainContract<MainLoremDomainCon
     }
 
     private void showLoremIpsum(LoremIpsumDataModel loremIpsumDataModel) {
-        if (domain != null) {
-            domain.showLoremIpsum(new LoremIpsumMapper().map(loremIpsumDataModel));
-            domain.hideLoadingDialog();
+        if (presenter != null) {
+            presenter.showLoremIpsum(new LoremIpsumMapper().map(loremIpsumDataModel));
+            presenter.hideLoadingDialog();
         }
     }
 
     private void showLastVisitedDate(DateDataModel dateDataModel) {
-        if (domain != null) {
-            domain.showLastVisitedDate(new DateMapper().map(dateDataModel));
+        if (presenter != null) {
+            presenter.showLastVisitedDate(new DateMapper().map(dateDataModel));
         }
     }
 
@@ -110,9 +110,9 @@ public final class LoremDomain implements LoremDomainContract<MainLoremDomainCon
                 message = "There was an error";
                 break;
         }
-        if (domain != null) {
-            domain.hideLoadingDialog();
-            domain.showError(message);
+        if (presenter != null) {
+            presenter.hideLoadingDialog();
+            presenter.showError(message);
         }
     }
 

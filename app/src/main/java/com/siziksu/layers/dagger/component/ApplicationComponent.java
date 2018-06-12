@@ -10,7 +10,7 @@ import com.siziksu.layers.data.client.LoremIpsumCacheClient;
 import com.siziksu.layers.data.client.LoremIpsumClient;
 import com.siziksu.layers.data.client.PreferencesClient;
 import com.siziksu.layers.domain.main.LoremDomain;
-import com.siziksu.layers.presenter.main.MainPresenter;
+import com.siziksu.layers.presenter.main.PresenterPresenter;
 import com.siziksu.layers.ui.view.main.MainActivity;
 
 import javax.inject.Singleton;
@@ -30,7 +30,7 @@ public interface ApplicationComponent {
 
     void inject(App target);
 
-    void inject(MainPresenter target);
+    void inject(PresenterPresenter target);
 
     void inject(Repository target);
 

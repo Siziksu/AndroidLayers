@@ -6,20 +6,20 @@ import com.siziksu.layers.common.ui.DialogFragmentHelper;
 import com.siziksu.layers.common.utils.DatesUtils;
 import com.siziksu.layers.common.utils.StringUtils;
 import com.siziksu.layers.domain.main.LoremDomainContract;
-import com.siziksu.layers.domain.main.MainLoremDomainContract;
+import com.siziksu.layers.domain.main.LoremDomainPresenterContract;
 import com.siziksu.layers.domain.model.DateDomainModel;
 import com.siziksu.layers.domain.model.LoremIpsumDomainModel;
 
 import javax.inject.Inject;
 
-public final class MainPresenter implements MainPresenterContract<MainViewContract>, MainLoremDomainContract {
+public final class PresenterPresenter implements MainPresenterContract<MainViewContract>, LoremDomainPresenterContract {
 
     @Inject
-    LoremDomainContract<MainLoremDomainContract> domain;
+    LoremDomainContract<LoremDomainPresenterContract> domain;
 
     private MainViewContract view;
 
-    public MainPresenter() {
+    public PresenterPresenter() {
         App.get().getApplicationComponent().inject(this);
     }
 

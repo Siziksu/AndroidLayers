@@ -2,7 +2,7 @@ package com.siziksu.layers.dagger.module;
 
 import com.siziksu.layers.domain.main.LoremDomain;
 import com.siziksu.layers.domain.main.LoremDomainContract;
-import com.siziksu.layers.domain.main.MainLoremDomainContract;
+import com.siziksu.layers.domain.main.LoremDomainPresenterContract;
 
 import dagger.Module;
 import dagger.Provides;
@@ -11,7 +11,7 @@ import dagger.Provides;
 public final class DomainModule {
 
     @Provides
-    LoremDomainContract<MainLoremDomainContract> providesLoremDomain() {
+    LoremDomainContract<LoremDomainPresenterContract> providesLoremDomain() {
         return new LoremDomain();
     }
 }

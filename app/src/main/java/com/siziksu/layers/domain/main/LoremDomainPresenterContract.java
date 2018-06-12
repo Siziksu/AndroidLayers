@@ -3,7 +3,7 @@ package com.siziksu.layers.domain.main;
 import com.siziksu.layers.domain.model.DateDomainModel;
 import com.siziksu.layers.domain.model.LoremIpsumDomainModel;
 
-public interface MainLoremDomainContract {
+public interface LoremDomainPresenterContract {
 
     void showLoadingDialog();
 
