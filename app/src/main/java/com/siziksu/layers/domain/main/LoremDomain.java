@@ -38,6 +38,7 @@ public final class LoremDomain implements LoremDomainContract<LoremDomainPresent
 
     @Override
     public void unregister() {
+        presenter = null;
         disposable = new Disposable[2];
     }
 
