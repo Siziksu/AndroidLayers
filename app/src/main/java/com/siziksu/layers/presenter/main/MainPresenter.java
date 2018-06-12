@@ -12,14 +12,14 @@ import com.siziksu.layers.domain.model.LoremIpsumDomainModel;
 
 import javax.inject.Inject;
 
-public final class PresenterPresenter implements MainPresenterContract<MainViewContract>, LoremDomainPresenterContract {
+public final class MainPresenter implements MainPresenterContract<MainViewContract>, LoremDomainPresenterContract {
 
     @Inject
     LoremDomainContract<LoremDomainPresenterContract> domain;
 
     private MainViewContract view;
 
-    public PresenterPresenter() {
+    public MainPresenter() {
         App.get().getApplicationComponent().inject(this);
     }
 
