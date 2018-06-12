@@ -5,6 +5,7 @@
     android:id="@+id/homeFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/background"
     tools:ignore="ContentDescription,MissingPrefix">
 
     <RelativeLayout
@@ -31,8 +32,13 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/button_rounded_transparent_dark_blue"
+            android:background="@drawable/button"
+            android:minHeight="30dp"
+            android:minWidth="30dp"
+            android:layout_margin="@dimen/padding2"
+            android:padding="@dimen/padding10"
             android:text="@string/reload"
+            android:textSize="@dimen/textSize13"
             android:textColor="@color/white" />
     </RelativeLayout>
 
@@ -48,8 +54,10 @@
         android:textColor="@color/darkGrey" />
 
     <ScrollView
+        style="@style/AppTheme.ScrollBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:layout_below="@+id/lastVisitedDate">
 
         <TextView

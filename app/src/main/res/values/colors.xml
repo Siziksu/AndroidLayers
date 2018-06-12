@@ -13,8 +13,10 @@
     <color name="grey">#FF757575</color>
     <color name="dialogButtonCancel">@color/colorPrimary</color>
     <color name="dialogButtonAccept">@color/colorAccent</color>
-    <color name="transparentDarkBlue">#8542505a</color>
     <color name="transparent">#00000000</color>
-    <color name="background">@color/white</color>
+    <color name="background">#ffffff</color>
     <color name="progressBar">@color/colorAccent</color>
+    <color name="scrollbarThumb">#4e599f</color>
+    <color name="buttonNormal">#4e599f</color>
+    <color name="buttonPressed">#3e4678</color>
 </resources>
