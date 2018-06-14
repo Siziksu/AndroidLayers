@@ -7,6 +7,7 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.siziksu.layers.R;
@@ -25,9 +26,9 @@ public class ConfirmationDialogFragment extends DialogFragment {
     @BindView(R.id.dialogConfirmationMessage)
     TextView message;
     @BindView(R.id.dialogConfirmationPositive)
-    TextView buttonPositive;
+    Button buttonPositive;
     @BindView(R.id.dialogConfirmationNegative)
-    TextView buttonCancel;
+    Button buttonCancel;
 
     private Consumer positive;
     private Consumer negative;
