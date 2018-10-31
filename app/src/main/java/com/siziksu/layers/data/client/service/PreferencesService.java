@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.siziksu.layers.common.function.Consumer;
+import com.siziksu.layers.common.function.Action;
 
 import javax.inject.Inject;
 
@@ -124,9 +124,9 @@ public final class PreferencesService {
         editor = preferences.edit();
     }
 
-    private void doIfEditorNotNull(Consumer consumer) {
+    private void doIfEditorNotNull(Action action) {
         if (preferences != null && editor != null) {
-            consumer.consume();
+            action.execute();
         }
     }
 }

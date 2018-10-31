@@ -2,7 +2,6 @@ package com.siziksu.layers.presenter.main;
 
 import com.siziksu.layers.App;
 import com.siziksu.layers.R;
-import com.siziksu.layers.common.ui.DialogFragmentHelper;
 import com.siziksu.layers.common.utils.DatesUtils;
 import com.siziksu.layers.common.utils.StringUtils;
 import com.siziksu.layers.domain.main.LoremDomainContract;
@@ -44,13 +43,11 @@ public final class MainPresenter implements MainPresenterContract<MainViewContra
     @Override
     public void onReloadButtonClick() {
         if (view != null) {
-            DialogFragmentHelper.showConfirmationDialog(
-                    view.getAppCompatActivity(),
-                    R.string.main_reload_dialog_message,
-                    R.string.main_reload_dialog_yes,
-                    () -> domain.getLoremIpsum(false),
-                    R.string.main_reload_dialog_no,
-                    () -> {}
+            view.showDialog(R.string.main_reload_dialog_message,
+                            R.string.main_reload_dialog_yes,
+                            () -> domain.getLoremIpsum(false),
+                            R.string.main_reload_dialog_no,
+                            () -> {}
             );
         }
     }

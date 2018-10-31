@@ -1,4 +1,4 @@
-package com.siziksu.layers.common.ui.dialog;
+package com.siziksu.layers.ui.view.common.dialog;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.siziksu.layers.R;
-import com.siziksu.layers.common.function.Consumer;
+import com.siziksu.layers.common.function.Action;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,8 +30,8 @@ public class ConfirmationDialogFragment extends DialogFragment {
     @BindView(R.id.dialogConfirmationNegative)
     Button buttonCancel;
 
-    private Consumer positive;
-    private Consumer negative;
+    private Action positive;
+    private Action negative;
     private String messageString;
     private String positiveString;
     private String negativeString;
@@ -91,7 +91,7 @@ public class ConfirmationDialogFragment extends DialogFragment {
     @OnClick(R.id.dialogConfirmationPositive)
     public void onPositiveButtonClick() {
         if (positive != null) {
-            positive.consume();
+            positive.execute();
         }
         dismiss();
     }
@@ -99,12 +99,12 @@ public class ConfirmationDialogFragment extends DialogFragment {
     @OnClick(R.id.dialogConfirmationNegative)
     public void onNegativeButtonClick() {
         if (negative != null) {
-            negative.consume();
+            negative.execute();
         }
         dismiss();
     }
 
-    public void setCallback(Consumer positive, Consumer negative) {
+    public void setCallback(Action positive, Action negative) {
         this.positive = positive;
         this.negative = negative;
     }

@@ -10,9 +10,10 @@ import android.widget.TextView;
 
 import com.siziksu.layers.App;
 import com.siziksu.layers.R;
-import com.siziksu.layers.common.ui.DialogFragmentHelper;
+import com.siziksu.layers.common.function.Action;
 import com.siziksu.layers.presenter.main.MainPresenterContract;
 import com.siziksu.layers.presenter.main.MainViewContract;
+import com.siziksu.layers.ui.view.common.DialogFragmentHelper;
 
 import javax.inject.Inject;
 
@@ -90,6 +91,18 @@ public final class MainActivity extends AppCompatActivity implements MainViewCon
         Snackbar snackbar = Snackbar.make(loremIpsum, message, Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction(R.string.reload, v -> presenter.onReloadButtonClick());
         snackbar.show();
+    }
+
+    @Override
+    public void showDialog(int message, int positiveText, Action positiveAction, int negativeText, Action negativeAction) {
+        DialogFragmentHelper.showConfirmationDialog(
+                this,
+                message,
+                positiveText,
+                positiveAction,
+                negativeText,
+                negativeAction
+        );
     }
 
     @Override

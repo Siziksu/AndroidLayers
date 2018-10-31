@@ -1,4 +1,4 @@
-package com.siziksu.layers.common.ui.dialog;
+package com.siziksu.layers.ui.view.common.dialog;
 
 import android.app.Dialog;
 import android.os.Bundle;

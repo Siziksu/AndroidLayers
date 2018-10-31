@@ -1,4 +1,4 @@
-package com.siziksu.layers.common.ui;
+package com.siziksu.layers.ui.view.common;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -6,9 +6,9 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.siziksu.layers.common.function.Consumer;
-import com.siziksu.layers.common.ui.dialog.ConfirmationDialogFragment;
-import com.siziksu.layers.common.ui.dialog.IndeterminateProgressFragment;
+import com.siziksu.layers.common.function.Action;
+import com.siziksu.layers.ui.view.common.dialog.ConfirmationDialogFragment;
+import com.siziksu.layers.ui.view.common.dialog.IndeterminateProgressFragment;
 
 public class DialogFragmentHelper {
 
@@ -17,7 +17,7 @@ public class DialogFragmentHelper {
 
     private DialogFragmentHelper() {}
 
-    public static void showConfirmationDialog(AppCompatActivity activity, @StringRes int message, @StringRes int positiveText, Consumer positive, @StringRes int negativeText, Consumer negative) {
+    public static void showConfirmationDialog(AppCompatActivity activity, @StringRes int message, @StringRes int positiveText, Action positive, @StringRes int negativeText, Action negative) {
         ConfirmationDialogFragment fragment = getConfirmationDialogFragment(positive, negative);
         Bundle bundle = new Bundle();
         bundle.putString(ConfirmationDialogFragment.MESSAGE_KEY, activity.getString(message));
@@ -50,7 +50,7 @@ public class DialogFragmentHelper {
     }
 
     @NonNull
-    private static ConfirmationDialogFragment getConfirmationDialogFragment(Consumer positive, Consumer negative) {
+    private static ConfirmationDialogFragment getConfirmationDialogFragment(Action positive, Action negative) {
         ConfirmationDialogFragment fragment = new ConfirmationDialogFragment();
         fragment.setCallback(positive, negative);
         fragment.setCancelable(false);

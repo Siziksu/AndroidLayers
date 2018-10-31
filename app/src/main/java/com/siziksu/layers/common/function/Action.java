@@ -1,7 +1,7 @@
 package com.siziksu.layers.common.function;
 
 @FunctionalInterface
-public interface Consumer {
+public interface Action {
 
-    void consume();
+    void execute();
 }
